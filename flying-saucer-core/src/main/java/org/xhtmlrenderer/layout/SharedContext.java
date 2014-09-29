@@ -97,7 +97,11 @@ public class SharedContext {
     private ReplacedElementFactory replacedElementFactory;
     private Rectangle temp_canvas;
     
+<<<<<<< HEAD
     private LineBreakingStrategy lineBreakingStrategy = new DefaultLineBreakingStrategy();
+=======
+    private int _realContentWidth = 0;
+>>>>>>> Added a way to get the real content width independently of the page width. This may be used to find out if the content is wider than the page size and was chopped off.
 
     public SharedContext() {
     }
@@ -622,14 +626,24 @@ public class SharedContext {
             }
         }
     }
-
-	public LineBreakingStrategy getLineBreakingStrategy() {
+    
+    public LineBreakingStrategy getLineBreakingStrategy() {
 		return lineBreakingStrategy;
 	}
 
 	public void setLineBreakingStrategy(LineBreakingStrategy lineBreakingStrategy) {
 		this.lineBreakingStrategy = lineBreakingStrategy;
-	}
+    }
+    
+    public int getRealContentWidth(){
+        return _realContentWidth;
+    }
+
+    
+    public int setRealContentWidth(int newContentWidth){
+        _realContentWidth = newContentWidth > _realContentWidth ? newContentWidth : _realContentWidth; 
+        return _realContentWidth;
+    }
 }
 
 /*
