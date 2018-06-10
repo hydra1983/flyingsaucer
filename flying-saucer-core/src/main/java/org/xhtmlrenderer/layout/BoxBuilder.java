@@ -1227,7 +1227,6 @@ public class BoxBuilder {
                        }
                        previousIB = iB;
                     }
-                    previousIB = iB;
                 } else if(nodeType == Node.ENTITY_REFERENCE_NODE) {
                     EntityReference entityReference = (EntityReference)working;
                     child = createInlineBox(entityReference.getTextContent(), parent, parentStyle, null);
